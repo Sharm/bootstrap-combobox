@@ -259,6 +259,11 @@
       }
     }
   }
+  
+  , elementClick: function() {
+    if (!this.selected)
+        this.toggle();
+  }
 
   , scrollSafety: function(e) {
       if (e.target.tagName == 'UL') {
@@ -288,6 +293,7 @@
   , listen: function () {
       this.$element
         .on('focus',    $.proxy(this.focus, this))
+        .on('click',    $.proxy(this.elementClick, this))
         .on('blur',     $.proxy(this.blur, this))
         .on('keypress', $.proxy(this.keypress, this))
         .on('keyup',    $.proxy(this.keyup, this));
